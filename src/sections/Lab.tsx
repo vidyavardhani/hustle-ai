@@ -115,7 +115,7 @@ const Lab = () => {
     <section ref={sectionRef} id="lab" className="relative w-full h-[80svh] min-h-9/10 bg-black overflow-hidden">
       {/* Background */}
 
-      <div className="absolute inset-0 opacity-20"
+      <div className="absolute inset-0 opacity-80"
         style={{
           backgroundImage: 'linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px)',
           backgroundSize: '50px 50px'

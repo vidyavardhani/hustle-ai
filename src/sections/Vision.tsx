@@ -68,7 +68,7 @@ const Vision = () => {
     <section 
       ref={sectionRef} 
       id="vision" 
-      className="relative w-full min-h-screen bg-black flex items-center justify-center py-16 sm:py-20"
+      className="relative w-full min-h-3/4 bg-black flex items-center justify-center py-16 sm:py-20"
     >
       {/* Background gradient */}
       <div className="absolute inset-0">

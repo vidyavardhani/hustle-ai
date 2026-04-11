@@ -1,0 +1,134 @@
+import { useState } from 'react';
+import { Send, CheckCircle, Users, TrendingUp, Clock, Sparkles } from 'lucide-react';
+
+const stats = [
+  { value: '500+', label: 'Graduates', icon: Users },
+  { value: '94%', label: 'Placement Rate', icon: TrendingUp },
+  { value: '16', label: 'Weeks', icon: Clock },
+];
+
+const Admission = () => {
+  const [email, setEmail] = useState('');
+  const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!email) return;
+    setIsLoading(true);
+    await new Promise(resolve => setTimeout(resolve, 1500));
+    setIsLoading(false);
+    setIsSubmitted(true);
+  };
+
+  return (
+    <section 
+      id="admission" 
+      className="relative w-full min-h-screen bg-black py-16 sm:py-20 lg:py-28 flex items-center justify-center"
+    >
+      {/* Background */}
+      <div className="absolute inset-0">
+        <div 
+          className="absolute inset-0 opacity-30"
+          style={{
+            background: `
+              radial-gradient(ellipse at 30% 30%, rgba(139, 92, 246, 0.15) 0%, transparent 50%),
+              radial-gradient(ellipse at 70% 70%, rgba(6, 182, 212, 0.15) 0%, transparent 50%)
+            `
+          }}
+        />
+      </div>
+
+      <div className="relative z-10 w-full max-w-md mx-auto px-4 sm:px-6">
+        {/* Header */}
+        <div className="text-center mb-8 sm:mb-10">
+          <div className="inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full border border-white/10 bg-white/5 mb-3 sm:mb-4">
+            <Sparkles className="w-3 h-3 sm:w-4 sm:h-4 text-amber-400" />
+            <span className="text-[10px] sm:text-xs text-white/60 font-mono tracking-wider">ADMISSIONS OPEN</span>
+          </div>
+
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white tracking-tight mb-2 sm:mb-3">
+            JOIN THE FUTURE
+          </h2>
+
+          <p className="text-sm sm:text-base text-white/50">
+            Cohort 3 starts March 2025. Limited seats available.
+          </p>
+        </div>
+
+        {/* Form */}
+        {!isSubmitted ? (
+          <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-5">
+            <div>
+              <input
+                type="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                placeholder="Enter your email"
+                className="w-full px-4 sm:px-5 py-3 sm:py-4 bg-transparent border-2 border-white/20 rounded-xl text-white text-sm sm:text-base placeholder:text-white/40 focus:border-white focus:outline-none transition-colors"
+                required
+              />
+            </div>
+
+            <button
+              type="submit"
+              disabled={isLoading}
+              className="group w-full px-6 py-3 sm:py-4 bg-white text-black rounded-xl font-medium hover:bg-white/90 transition-all duration-300 disabled:opacity-50 flex items-center justify-center gap-2"
+            >
+              {isLoading ? (
+                <div className="w-5 h-5 border-2 border-black/30 border-t-black rounded-full animate-spin" />
+              ) : (
+                <>
+                  Request Access
+                  <Send className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                </>
+              )}
+            </button>
+
+            <p className="text-center text-xs text-white/40">
+              By applying, you agree to our Terms of Service and Privacy Policy.
+            </p>
+          </form>
+        ) : (
+          <div className="text-center py-6 sm:py-8 animate-fade-in">
+            <div className="w-14 h-14 sm:w-16 mx-auto mb-4 sm:mb-5 rounded-full bg-white/10 flex items-center justify-center">
+              <CheckCircle className="w-7 h-7 sm:w-8 sm:h-8 text-white" />
+            </div>
+            <h3 className="text-xl sm:text-2xl font-bold text-white mb-2">Application Received!</h3>
+            <p className="text-sm text-white/50">We&apos;ll be in touch soon with next steps.</p>
+          </div>
+        )}
+
+        {/* Stats */}
+        <div className="mt-10 sm:mt-12 grid grid-cols-3 gap-3 sm:gap-4">
+          {stats.map((stat) => {
+            const Icon = stat.icon;
+            return (
+              <div key={stat.label} className="text-center">
+                <div className="flex items-center justify-center gap-1 sm:gap-1.5 text-white/40 mb-1 sm:mb-2">
+                  <Icon className="w-3 h-3 sm:w-4 sm:h-4" />
+                  <span className="text-[9px] sm:text-[10px] font-mono uppercase">{stat.label}</span>
+                </div>
+                <div className="text-xl sm:text-2xl md:text-3xl font-bold text-white">
+                  {stat.value}
+                </div>
+              </div>
+            );
+          })}
+        </div>
+      </div>
+
+      <style>{`
+        @keyframes fade-in {
+          from { opacity: 0; transform: translateY(10px); }
+          to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-fade-in {
+          animation: fade-in 0.5s ease-out forwards;
+        }
+      `}</style>
+    </section>
+  );
+};
+
+export default Admission;

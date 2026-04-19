@@ -194,10 +194,10 @@ const Hero = () => {
             VVDxHUSTLE
           </div>
           <a
-            href="#admission"
+            href="https://vvdx.in/arena"
             className="hidden sm:inline-flex items-center px-3 sm:px-4 py-1.5 sm:py-2 border border-white/30 rounded-full text-white text-xs sm:text-sm hover:bg-white hover:text-black transition-all duration-300"
           >
-            Apply for Cohort
+            Apply Now
           </a>
         </div>
 
@@ -215,19 +215,13 @@ const Hero = () => {
 
           <div className="mt-8 sm:mt-12 flex flex-col sm:flex-row gap-3 sm:gap-4">
             <a
-              href="#tiers"
+              href="https://vvdx.in/arena"
               className="group px-5 sm:px-8 py-2.5 sm:py-3.5 bg-white text-black rounded-full font-medium hover:bg-white/90 transition-all duration-300 flex items-center justify-center gap-2 text-sm sm:text-base"
             >
-              Explore Programs
+              Explore Arena
               <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
               </svg>
-            </a>
-            <a
-              href="#vision"
-              className="px-5 sm:px-8 py-2.5 sm:py-3.5 border border-white/30 text-white rounded-full font-medium hover:bg-white/10 transition-all duration-300 text-sm sm:text-base"
-            >
-              Learn More
             </a>
           </div>
         </div>

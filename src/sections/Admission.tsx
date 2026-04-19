@@ -73,7 +73,7 @@ const Admission = () => {
                 </>
               )}
             </a>
-
+            </div>
             <p className="text-center text-xs text-white/40">
               By applying, you agree to our Terms of Service and Privacy Policy.
             </p>

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+
 import { Send, CheckCircle, Users, TrendingUp, Clock, Sparkles } from 'lucide-react';
 
 const stats = [

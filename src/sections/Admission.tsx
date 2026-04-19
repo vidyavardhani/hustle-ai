@@ -1,5 +1,5 @@
 
-import { Send, CheckCircle, Users, TrendingUp, Clock, Sparkles } from 'lucide-react';
+import { Send, Users, TrendingUp, Clock, Sparkles } from 'lucide-react';
 
 const stats = [
   { value: '500+', label: 'Graduates', icon: Users },
